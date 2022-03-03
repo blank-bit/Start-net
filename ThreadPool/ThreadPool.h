@@ -17,18 +17,23 @@ using std::list;
 using std::queue;
 using std::shared_ptr;
 
-typedef int (*taskFun)(void *param);
+typedef int (*TaskFun)(void *param);
 
 class ThreadPool
 {
 private:
-    /* data */
+    int maxsize;
+    bool stop;
+
 public:
-    ThreadPool(/* args */);
+    ThreadPool(int size);
     ~ThreadPool();
+
+    void CreateThread(int num);
+    void EnQueue(TaskFun func);
 };
 
-ThreadPool::ThreadPool(/* args */)
+ThreadPool::ThreadPool(int size)
 {
 }
 
