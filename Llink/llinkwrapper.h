@@ -15,18 +15,18 @@ extern "C"
 
     struct tagLlink;
 
-    extern struct tagLlink* Init(void);
-    extern void* getIndex(struct tagLlink* llink, int index);
-    extern void* getHead(struct tagLlink* llink);
-    extern void* getTail(struct tagLlink* llink);
-    extern void addAtHead(struct tagLlink* llink, void* val);
-    extern void addAtTail(struct tagLlink* llink, void* val);
-    extern void addAtIndex(struct tagLlink* llink, int index, void* val);
-    extern void deleteAtIndex(struct tagLlink* llink, int index);
-    extern void deinit(struct tagLlink** llink);
-    extern int getSize(struct tagLlink* llink);
-    extern int isEmpty(struct tagLlink* llink);
-    extern void traverse(struct tagLlink* llink);
+    extern struct tagLlink *Init(void);
+    extern void *getIndex(struct tagLlink *llink, int index);
+    extern void *getHead(struct tagLlink *llink);
+    extern void *getTail(struct tagLlink *llink);
+    extern void addAtHead(struct tagLlink *llink, void *val);
+    extern void addAtTail(struct tagLlink *llink, void *val);
+    extern void addAtIndex(struct tagLlink *llink, int index, void *val);
+    extern void deleteAtIndex(struct tagLlink *llink, int index);
+    extern void deinit(struct tagLlink **llink);
+    extern int getSize(struct tagLlink *llink);
+    extern int isEmpty(struct tagLlink *llink);
+    extern void traverse(struct tagLlink *llink);
 
 #ifdef __cplusplus
 };

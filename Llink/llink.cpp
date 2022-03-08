@@ -5,7 +5,6 @@
  * @Description:
  *********************************/
 
-#include <iostream>
 #include "llink.h"
 
 MyLinkedList::MyLinkedList()
@@ -16,18 +15,18 @@ MyLinkedList::MyLinkedList()
 
 /*********************************
  * @function: getIndex
- * @description: ·µ»Øindex½ÚµãµÄÖµ
+ * @description: è¿”å›žindexèŠ‚ç‚¹çš„å€¼
  * @param {int} index
  * @return {*}
  *********************************/
-void* MyLinkedList::getIndex(int index)
+void *MyLinkedList::getIndex(int index)
 {
     if (index < 0 || index > size - 1)
     {
         return nullptr;
     }
 
-    node* cur = nullptr;
+    node *cur = nullptr;
     cur = head->next;
     while (index--)
     {
@@ -39,25 +38,26 @@ void* MyLinkedList::getIndex(int index)
 
 /*********************************
  * @function: getHead
- * @description: ·µ»ØÍ·½ÚµãµÄÖµ
+ * @description: è¿”å›žå¤´èŠ‚ç‚¹çš„å€¼
  * @param {*}
  * @return {*}
  *********************************/
-void* MyLinkedList::getHead(void)
+void *MyLinkedList::getHead(void)
 {
     if (size > 0)
         return head->next->val;
+    return nullptr;
 }
 
 /*********************************
  * @function: getTail
- * @description: ·µ»Ø×îºóÒ»¸ö½ÚµãµÄÖµ
+ * @description: è¿”å›žæœ€åŽä¸€ä¸ªèŠ‚ç‚¹çš„å€¼
  * @param {*}
  * @return {*}
  *********************************/
-void* MyLinkedList::getTail(void)
+void *MyLinkedList::getTail(void)
 {
-    node* cur = nullptr;
+    node *cur = nullptr;
     cur = head;
     int i = size;
 
@@ -71,16 +71,16 @@ void* MyLinkedList::getTail(void)
 
 /*********************************
  * @function: addAtHead
- * @description: Í·²å
+ * @description: å¤´æ’
  * @param {void} *val
  * @return {*}
  *********************************/
-void MyLinkedList::addAtHead(void* val)
+void MyLinkedList::addAtHead(void *val)
 {
 
-    // int *v = new int(*(int *)val); //¿½±´
+    // int *v = new int(*(int *)val); //æ‹·è´
 
-    node* cur = new node(val);
+    node *cur = new node(val);
 
     cur->next = head->next;
     cur->pre = head;
@@ -96,15 +96,15 @@ void MyLinkedList::addAtHead(void* val)
 
 /*********************************
  * @function: addAtTail
- * @description: Î²²å
+ * @description: å°¾æ’
  * @param {void} *val
  * @return {*}
  *********************************/
-void MyLinkedList::addAtTail(void* val)
+void MyLinkedList::addAtTail(void *val)
 {
-    // int *v = new int(*(int *)val); //Éî¿½±´
+    // int *v = new int(*(int *)val); //æ·±æ‹·è´
 
-    node* tail = nullptr;
+    node *tail = nullptr;
     tail = head;
 
     int i = size;
@@ -113,7 +113,7 @@ void MyLinkedList::addAtTail(void* val)
         tail = tail->next;
     }
 
-    node* cur = new node(val);
+    node *cur = new node(val);
     tail->next = cur;
     cur->pre = tail;
 
@@ -122,14 +122,14 @@ void MyLinkedList::addAtTail(void* val)
 
 /*********************************
  * @function: addAtIndex
- * @description: ÔÚµÚindex¸ö½ÚµãÇ°²åÈë
+ * @description: åœ¨ç¬¬indexä¸ªèŠ‚ç‚¹å‰æ’å…¥
  * @param {int} index
  * @param {void} *val
  * @return {*}
  *********************************/
-void MyLinkedList::addAtIndex(int index, void* val)
+void MyLinkedList::addAtIndex(int index, void *val)
 {
-    // int *v = new int(*(int *)val); //Éî¿½±´
+    // int *v = new int(*(int *)val); //æ·±æ‹·è´
 
     if (index > size)
     {
@@ -141,7 +141,7 @@ void MyLinkedList::addAtIndex(int index, void* val)
         index = 0;
     };
 
-    node* ptr = nullptr;
+    node *ptr = nullptr;
     ptr = head;
 
     while (index--)
@@ -149,7 +149,7 @@ void MyLinkedList::addAtIndex(int index, void* val)
         ptr = ptr->next;
     }
 
-    node* cur = new node(val);
+    node *cur = new node(val);
     cur->next = ptr->next;
     ptr->next = cur;
     cur->pre = ptr;
@@ -164,7 +164,7 @@ void MyLinkedList::addAtIndex(int index, void* val)
 
 /*********************************
  * @function: deleteAtIndex
- * @description: É¾³ýµÚindex¸ö½Úµã
+ * @description: åˆ é™¤ç¬¬indexä¸ªèŠ‚ç‚¹
  * @param {int} index
  * @return {*}
  *********************************/
@@ -175,7 +175,7 @@ void MyLinkedList::deleteAtIndex(int index)
         return;
     }
 
-    node* ptr = nullptr;
+    node *ptr = nullptr;
     ptr = head;
 
     while (index--)
@@ -183,7 +183,7 @@ void MyLinkedList::deleteAtIndex(int index)
         ptr = ptr->next;
     }
 
-    node* cur = nullptr;
+    node *cur = nullptr;
     cur = ptr->next;
     ptr->next = cur->next;
 
@@ -200,19 +200,19 @@ void MyLinkedList::deleteAtIndex(int index)
 
 /*********************************
  * @function: traverse
- * @description: ±éÀúÊä³ö½ÚµãÖµ
+ * @description: éåŽ†è¾“å‡ºèŠ‚ç‚¹å€¼
  * @param {*}
  * @return {*}
  *********************************/
-void MyLinkedList::traverse(void)
-{
-    node* ptr = head;
-    while (ptr->next)
-    {
-        ptr = ptr->next;
-        std::cout << *(char**)(ptr->val) << std::endl;
-    }
-}
+// void MyLinkedList::traverse(void)
+//{
+//     node *ptr = head;
+//     while (ptr->next)
+//     {
+//         ptr = ptr->next;
+//         std::cout << *(char **)(ptr->val) << std::endl;
+//     }
+// }
 
 int MyLinkedList::getSize(void)
 {
@@ -226,10 +226,10 @@ int MyLinkedList::isEmpty(void)
 
 MyLinkedList::~MyLinkedList()
 {
-    node* ptr = head;
+    node *ptr = head;
     while (ptr->next)
     {
-        node* cur = ptr->next;
+        node *cur = ptr->next;
         ptr->next = cur->next;
         if (cur->next)
         {

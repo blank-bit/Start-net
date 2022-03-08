@@ -16,17 +16,17 @@ public:
     const int iArrayLen = 5;
     MyArray();
     MyArray(int size);
-    void** Begin();
-    void** End();
-    void PushBack(void* val);
-    void PushFront(void* val);
-    void Insert(int index, void* val);
+    void **Begin();
+    void **End();
+    void PushBack(void *val);
+    void PushFront(void *val);
+    void Insert(int index, void *val);
     void PopBack();
     void DeleteIndex(int index);
     int Empty();
     void ExpCapacity(void);
     void CutCapacity(void);
-    void* GetIndex(int index);
+    void *GetIndex(int index);
     // void Traverse();
     int Size();
     int Capacity();
@@ -34,11 +34,10 @@ public:
     ~MyArray();
 
 private:
-    void** _first;
-    void** _last;
-    void** _end;
+    void **_first;
+    void **_last;
+    void **_end;
     int capacity;
 };
 
 #endif
-

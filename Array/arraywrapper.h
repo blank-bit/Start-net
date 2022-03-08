@@ -15,16 +15,16 @@ extern "C"
 
     struct VLArray;
 
-    extern struct VLArray* Init();
-    extern void PushBack(struct VLArray* array, void* val);
-    extern void PushFront(struct VLArray* array, void* val);
-    extern void Insert(struct VLArray* array, int index, void* val);
-    extern void PopBack(struct VLArray* array);
-    extern void DeleteIndex(struct VLArray* array, int index);
-    extern void* GetIndex(struct VLArray* array, int index);
-    extern void Traverse(struct VLArray* array);
-    extern int Size(struct VLArray* array);
-    extern void Deinit(struct VLArray** array);
+    extern struct VLArray *Init();
+    extern void PushBack(struct VLArray *array, void *val);
+    extern void PushFront(struct VLArray *array, void *val);
+    extern void Insert(struct VLArray *array, int index, void *val);
+    extern void PopBack(struct VLArray *array);
+    extern void DeleteIndex(struct VLArray *array, int index);
+    extern void *GetIndex(struct VLArray *array, int index);
+    extern void Traverse(struct VLArray *array);
+    extern int Size(struct VLArray *array);
+    extern void Deinit(struct VLArray **array);
 
 #ifdef __cplusplus
 };

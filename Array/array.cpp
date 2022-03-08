@@ -9,24 +9,24 @@
 
 MyArray::MyArray() : _first(nullptr), _last(nullptr), _end(nullptr)
 {
-    _first = new void* [iArrayLen];
+    _first = new void *[iArrayLen];
     _last = _first;
     _end = _first + iArrayLen;
 }
 
 MyArray::MyArray(int size) : _first(nullptr), _last(nullptr), _end(nullptr), capacity(size)
 {
-    _first = new void* [size];
+    _first = new void *[size];
     _last = _first;
     _end = _first + size;
 }
 
-void** MyArray::Begin()
+void **MyArray::Begin()
 {
     return _first;
 }
 
-void** MyArray::End()
+void **MyArray::End()
 {
     return _last;
 }
@@ -42,7 +42,7 @@ MyArray::~MyArray()
  * @param {void} *val
  * @return {*}
  *********************************/
-void MyArray::PushBack(void* val)
+void MyArray::PushBack(void *val)
 {
     CheckCapacity();
     _last[0] = val;
@@ -55,7 +55,7 @@ void MyArray::PushBack(void* val)
  * @param {void} *val
  * @return {*}
  *********************************/
-void MyArray::PushFront(void* val)
+void MyArray::PushFront(void *val)
 {
     CheckCapacity();
     for (int i = Size() - 1; i >= 0; --i)
@@ -73,7 +73,7 @@ void MyArray::PushFront(void* val)
  * @param {void} *val
  * @return {*}
  *********************************/
-void MyArray::Insert(int index, void* val)
+void MyArray::Insert(int index, void *val)
 {
     if (index < 0 || index > Size())
     {
@@ -152,7 +152,7 @@ void MyArray::ExpCapacity(void)
 {
     int size = Size();
     int newSize = 2 * size;
-    void** tmp = new void* [newSize];
+    void **tmp = new void *[newSize];
 
     if (_first)
     {
@@ -185,7 +185,7 @@ void MyArray::CutCapacity(void)
 
     int size = Size();
     int newSize = capacity / 2;
-    void** tmp = new void* [newSize];
+    void **tmp = new void *[newSize];
 
     if (newSize <= size)
     {
@@ -223,7 +223,7 @@ void MyArray::CutCapacity(void)
  * @param {int} index
  * @return {void *}
  *********************************/
-void* MyArray::GetIndex(int index)
+void *MyArray::GetIndex(int index)
 {
     if (index > Size() - 1 || index < 0)
     {
@@ -239,22 +239,22 @@ void* MyArray::GetIndex(int index)
  * @param {*}
  * @return {*}
  *********************************/
- // void MyArray::Traverse()
- // {
- //     int i = 0;
- //     while (i < Size())
- //     {
- //         std::cout << "Array[" << i << "]:" << *(int *)_first[i] << std::endl;
- //         i++;
- //     }
- // }
+// void MyArray::Traverse()
+// {
+//     int i = 0;
+//     while (i < Size())
+//     {
+//         std::cout << "Array[" << i << "]:" << *(int *)_first[i] << std::endl;
+//         i++;
+//     }
+// }
 
- /*********************************
-  * @function: Size
-  * @description: 返回已有数据长度
-  * @param {*}
-  * @return {int}
-  *********************************/
+/*********************************
+ * @function: Size
+ * @description: 返回已有数据长度
+ * @param {*}
+ * @return {int}
+ *********************************/
 int MyArray::Size()
 {
     return _last - _first;

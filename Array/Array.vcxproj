@@ -145,7 +145,7 @@
   <ItemGroup>
     <ClCompile Include="array.cpp" />
     <ClCompile Include="arraywrapper.cpp" />
-    <ClCompile Include="test.cpp" />
+    <ClCompile Include="test.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

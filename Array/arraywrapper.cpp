@@ -22,64 +22,65 @@ extern "C"
         }
     };
 
-    struct VLArray* Init()
+    struct VLArray *Init()
     {
         return new struct VLArray;
     }
 
-    void PushBack(struct VLArray* array, void* val)
+    void PushBack(struct VLArray *array, void *val)
     {
         array->myArray.PushBack(val);
     }
 
-    void PushFront(struct VLArray* array, void* val)
+    void PushFront(struct VLArray *array, void *val)
     {
 
         array->myArray.PushFront(val);
     }
 
-    void Insert(struct VLArray* array, int index, void* val)
+    void Insert(struct VLArray *array, int index, void *val)
     {
         array->myArray.Insert(index, val);
     }
 
-    void PopBack(struct VLArray* array)
+    void PopBack(struct VLArray *array)
     {
 
         array->myArray.PopBack();
     }
 
-    void DeleteIndex(struct VLArray* array, int index)
+    void DeleteIndex(struct VLArray *array, int index)
     {
 
         array->myArray.DeleteIndex(index);
     }
 
-    void* GetIndex(struct VLArray* array, int index)
+    void *GetIndex(struct VLArray *array, int index)
     {
         return array->myArray.GetIndex(index);
     }
 
-    void Traverse(struct VLArray* array)
+    //通过Size和Begin来遍历，将得到的指针进行类型转换
+    void Traverse(struct VLArray *array)
     {
         int i = 0;
         while (i < array->myArray.Size())
         {
             // auto ot = (*(array->myArray.Begin() + i));
-            std::cout << "Array[" << i << "]:" << *(int*)(*(array->myArray.Begin() + i)) << std::endl;
+            std::cout << "Array[" << i << "]:" << *(int *)(*(array->myArray.Begin() + i)) << std::endl;
             // std::cout << "Array[" << i << "]:" << *ot << std::endl;
             i++;
         }
     }
 
-    int Size(struct VLArray* array)
+    int Size(struct VLArray *array)
     {
         return array->myArray.Size();
     }
 
-    void Deinit(struct VLArray** array)
+    void Deinit(struct VLArray **array)
     {
-        delete* array;
+        delete *array;
     }
 
     // int *Begin(struct VLArray *array)
